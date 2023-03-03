@@ -7,6 +7,9 @@ app = Flask(__name__, static_folder='../infinitron-react/build')
 def home():
     return send_from_directory(app.static_folder, 'index.html')
 
+@app.route('/<path:path>')
+def send_report(path):
+    return send_from_directory('build', path)
 
 @app.route('/about')
 def about():
